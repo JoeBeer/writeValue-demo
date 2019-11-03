@@ -1,0 +1,3 @@
+<select class="form-control" #select (change)="onChange($event.target.value)">
+  <option *ngFor="let item of returnedTable" [value]="item.value" [selected]="selected === item.value">{{item.value}}</option>
+</select>
