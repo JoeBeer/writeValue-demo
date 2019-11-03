@@ -39,15 +39,9 @@ export class AppComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log("====>>> onSubmit()");
-    console.log(this.form.get("mainSelect").value);
-    console.log(this.form.get("subSelect").value);
     if (this.form.valid) {
       this.containerObject.mainSelect = this.form.get("mainSelect").value;
       this.containerObject.subSelect = this.form.get("subSelect").value;
-      console.log("====>>> after setting form");
-      console.log(this.form.get("mainSelect").value);
-      console.log(this.form.get("subSelect").value);
       this.tableService.saveContainerObject(this.containerObject);
     }
   }
