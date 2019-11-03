@@ -1,6 +1,6 @@
 <div>
-  <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <div class="form-group row">
+  <form id="wrapper" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div id="left" class="form-group row">
       <label for="mainSelect" class="col-form-label col-sm-2">MainSelect</label>
       <div class="col-sm-6">
         <app-select
@@ -11,8 +11,7 @@
         ></app-select>
       </div>
     </div>
-    <p></p>
-    <div class="form-group row">
+    <div id="right" class="form-group row">
       <label for="subSelect" class="col-form-label col-sm-2">SubSelect</label>
       <div class="col-sm-6">
         <app-select
