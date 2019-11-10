@@ -34,6 +34,10 @@ export class SelectComponent implements ControlValueAccessor, OnChanges {
     this.tableService.getTable(this.tableId, this.filter)
       .subscribe(table => {
         this.returnedTable = table;
+        if (!!this.select && !!this.select.nativeElement.value) {
+          this.writeValue(this.select.nativeElement.value);
+          this.onChange(this.selected);
+        }
       });
   }
 
@@ -50,6 +54,10 @@ export class SelectComponent implements ControlValueAccessor, OnChanges {
   }
 
   writeValue(value: string): void {
-    this.selected = value;
+    if (!!this.returnedTable && !this.returnedTable.some(item => item.value === value)) {
+      this.selected = null;
+    } else {
+      this.selected = value;
+    }
   }
 }
